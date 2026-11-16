@@ -24,20 +24,16 @@
   <main>
     <h1>When It Happens</h1>
 
-    <!-- Viz 1: replace the placeholder div with <div id="viz1" class="chart"></div>
-         and add embedChart("viz1", "charts/viz1.json") at the bottom of the page (see README) -->
     <section class="viz">
-      <h2>Viz 1: [Title]</h2>
-      <div class="placeholder">Viz 1 goes here</div>
-      <p>[Takeaway paragraph for Viz 1.]</p>
+      <h2>Viz 1: Incidents by date</h2>
+      <div id="viz1" class="chart"></div>
+      <p>Boston averaged about 47 reported Part One incidents a day between September 2017 and August 2018. The calendar shows a clear seasonal pattern. Incidents rise in summer and early fall, with July (1,654) and September (1,620) the busiest months, and fall to their lowest in February and March. The quietest single days line up with storms and holidays. March 13, 2018, the day of a nor'easter, had the fewest incidents (16). The January 4 "bomb cyclone" (17), Christmas Day (21) and Thanksgiving (22) were close behind. The busiest day was September 23, 2017, with 77 incidents, right as students were settling into the fall semester. The pattern suggests that crime follows how many people are out and about: warm weather and busy streets bring more incidents, and staying in during a blizzard brings fewer.</p>
     </section>
 
-    <!-- Viz 2: replace the placeholder div with <div id="viz2" class="chart"></div>
-         and add embedChart("viz2", "charts/viz2.json") at the bottom of the page (see README) -->
     <section class="viz">
-      <h2>Viz 2: [Title]</h2>
-      <div class="placeholder">Viz 2 goes here</div>
-      <p>[Takeaway paragraph for Viz 2.]</p>
+      <h2>Viz 2: Incidents by day of week and hour</h2>
+      <div id="viz2" class="chart"></div>
+      <p>Incidents follow a daily rhythm. They're lowest around 5 a.m. and climb through the day to a peak in the late afternoon and early evening. The single busiest hour of the week is Friday at 5 p.m. (192 incidents), and weekdays between 4 and 7 p.m. are consistently the darkest part of the grid. Weekends look different after midnight. Between midnight and 4 a.m., Saturdays and Sundays average about 60% more incidents than weekdays, which reflects late-night activity. For students, the takeaway is that the riskiest times aren't the middle of the night. They're the busy commuting and evening hours when the most people are out.</p>
     </section>
 
     <!-- Viz 4: replace the placeholder div with <div id="viz4" class="chart"></div>
@@ -48,6 +44,10 @@
       <p>[Takeaway paragraph for Viz 4.]</p>
     </section>
 
+    <script>
+      embedChart("viz1", "charts/calendar.json");
+      embedChart("viz2", "charts/weekly.json");
+    </script>
   </main>
 
   <footer>

@@ -41,3 +41,37 @@ footer {
   text-align: center;
   font-size: 0.9rem;
 }
+
+/* Map 1 */
+.map-controls { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; margin: 0.5rem 0; }
+.map-row { display: flex; gap: 1rem; align-items: flex-start; }
+#map1 { flex: 1 1 auto; min-width: 0; height: 600px; position: relative; }
+.offense-panel { flex: 0 0 auto; }
+.offense-panel label { display: flex; align-items: center; gap: 0.4rem; }
+.swatch { display: inline-block; width: 12px; height: 12px; border-radius: 50%; border: 1px solid #888; }
+.zoom-buttons { position: absolute; top: 10px; left: 10px; z-index: 10; display: flex; flex-direction: column; gap: 4px; }
+.zoom-buttons button {
+  width: 32px; height: 32px; padding: 0; cursor: pointer;
+  background: #fff; color: #222; border: 1px solid #bbb; border-radius: 6px;
+  font: 600 20px/30px sans-serif; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+.zoom-buttons button:hover { background: #eee; }
+.neu-label { color: #fff; font: 600 13px sans-serif; text-shadow: 0 0 3px #000, 0 0 3px #000; }
+
+/* Two-handle hour slider: two range inputs stacked on one track */
+.hour-range { position: relative; width: 300px; height: 24px; }
+.hour-range input {
+  position: absolute; left: 0; top: 0; width: 100%; margin: 0;
+  pointer-events: none; background: none; -webkit-appearance: none; appearance: none;
+}
+.hour-range input::-webkit-slider-thumb { pointer-events: auto; }
+.hour-range input::-moz-range-thumb { pointer-events: auto; }
+.hour-range::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 4px;
+  transform: translateY(-50%); background: #ccc; border-radius: 2px;
+}
+
+@media (max-width: 700px) {
+  .map-row { flex-direction: column; }
+  #map1 { width: 100%; height: 450px; }
+}

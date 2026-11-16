@@ -15,6 +15,6 @@ DS4200 final project website: Boston crime incident reports, Sep 2017 - Aug 2018
 
 Folders:
 - `charts/` holds Altair charts  
-- `data/` holds data files that pages load
-- `js/` holds page scripts (`charts.js` draws the Altair charts)
+- `data/` holds data files that pages load (Map 1 uses `data/map1.json`)
+- `js/` holds page scripts (`charts.js` draws the Altair charts, `map1.js` draws Map 1)
 

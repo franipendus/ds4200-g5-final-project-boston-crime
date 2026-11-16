@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Where It Happens</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega@6.2.0/build/vega.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1/build/vega-lite.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@7.0.2/build/vega-embed.min.js"></script>
@@ -24,12 +26,30 @@
   <main>
     <h1>Where It Happens</h1>
 
-    <!-- Map 1: replace the placeholder div with <div id="map1" class="chart"></div>
-         and add embedChart("map1", "charts/map1.json") at the bottom of the page (see README) -->
     <section class="viz">
-      <h2>Map 1: [Title]</h2>
-      <div class="placeholder">Map 1 goes here</div>
-      <p>[Takeaway paragraph for Map 1.]</p>
+      <h2 style="font-weight: normal">Map 1: <b>Where Incidents Happened</b>, Sep 2017 - Aug 2018</h2>
+      <div id="shown"></div>
+      <div class="map-controls">
+        <label>Day:
+          <select id="day"><option value="-1">All days</option></select>
+        </label>
+        <span>Hours:</span>
+        <div class="hour-range">
+          <input id="start-hour" type="range" min="0" max="23" value="0" aria-label="Start hour">
+          <input id="end-hour" type="range" min="0" max="23" value="23" aria-label="End hour">
+        </div>
+        <span id="hour-text"></span>
+      </div>
+      <div class="map-row">
+        <div id="map1"></div>
+        <div class="offense-panel">
+          <b>Offense</b>
+          <div id="offense-list"></div>
+          <button id="all" type="button">All</button>
+          <button id="none" type="button">None</button>
+        </div>
+      </div>
+      <p>Incidents in Boston are concentrated rather than spread evenly. The densest clusters are downtown and in the South End and Back Bay. The South End district (D4) has the most incidents of any police district (3,438). Washington Street (903) and Boylston Street (810) are the streets with the most reported incidents, followed by Blue Hill Avenue, Newbury Street and Massachusetts Avenue. Close to campus, 1,197 incidents happened within 1 km of Northeastern. More than half of those (672) were larceny, meaning theft of unattended property rather than violent crime. Filtering by hour and day shows how these hotspots grow in the evening. For students, the main risk near campus is theft, so it's worth keeping an eye on your belongings in busy areas like Huntington Avenue and Back Bay.</p>
     </section>
 
     <!-- Map 2: replace the placeholder div with <div id="map2" class="chart"></div>
@@ -48,6 +68,7 @@
       <p>[Takeaway paragraph for Viz 6.]</p>
     </section>
 
+    <script src="js/map1.js"></script>
   </main>
 
   <footer>
