@@ -24,13 +24,15 @@
   <main>
     <h1>The Walk Home Itself</h1>
 
-    <!-- Viz 5: replace the placeholder div with <div id="viz5" class="chart"></div>
-         and add embedChart("viz5", "charts/viz5.json") at the bottom of the page (see README) -->
     <section class="viz">
-      <h2>Viz 5: [Title]</h2>
-      <div class="placeholder">Viz 5 goes here</div>
-      <p>[Takeaway paragraph for Viz 5.]</p>
+      <h2>Viz 5: Incidents by distance from Snell</h2>
+      <div id="viz5" class="chart"></div>
+      <p>This visualization helps answer the question "does crime increase as you walk away from the NEU Boston campus?" The answer to this question is yes, but more gradually than the raw counts make it seem once you account for area sizes, which users can see by hovering over each ring to view the incidents per square mile. According to the chart, there is almost no crime within 0.1 miles of Snell Library, the approximate center of the Boston campus, which is likely because on-campus incidents are typically handled by NUPD and are not included in this Boston Police Department data. Moving past 0.1 miles, there is a jump to 31 incidents during the day but only 3 at night for 0.1-0.15 miles from Snell. Of these daytime incidents, almost all of them occurred on Huntington Ave (30 of the 31) and most were larceny (29 instances). At night, crime stays low right at the edge of campus and then starts to pick up from about 0.15 miles outward. Further, there is a line drawn for the approximate edge of campus, about 0.25 miles from Snell, which helps visualize on vs off campus crime. Using the data, we calculated that inside campus there were about 321 incidents per square mile during the day and 224 at night, while outside campus there were about 435 during the day and 319 at night, so crime is around 35-40% denser once you leave campus. However, we must note that this data is based on counts, not rates. Because there is no foot traffic data, busy areas like Huntington Ave may look more dangerous just because more people are there. All in all, the key takeaway here is that crime near campus at night is low, but students should be more aware once they walk past the edge of campus, since that is where nighttime crime starts to rise.</p>
     </section>
+
+    <script>
+      embedChart("viz5", "charts/distance.json");
+    </script>
 
   </main>
 
