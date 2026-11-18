@@ -60,15 +60,16 @@
       <p>[Takeaway paragraph for Map 2.]</p>
     </section>
 
-    <!-- Viz 6: replace the placeholder div with <div id="viz6" class="chart"></div>
-         and add embedChart("viz6", "charts/viz6.json") at the bottom of the page (see README) -->
     <section class="viz">
-      <h2>Viz 6: [Title]</h2>
-      <div class="placeholder">Viz 6 goes here</div>
-      <p>[Takeaway paragraph for Viz 6.]</p>
+      <h2>Viz 6: Top streets by hour of day</h2>
+      <div id="viz6" class="chart"></div>
+      <p>This visualization helps answer the question "which streets near the NEU Boston campus are the most dangerous when I'm walking home?" Across all hours, Huntington Ave and Massachusetts Ave have the most crime, making up about 15% and 13.5% of incidents near campus. Of the 83 incidents on Huntington Ave, most were larceny (58 instances). However, the top streets change depending on the time of day. When selecting 10 PM to 2 AM, Massachusetts Ave moves to the top with about 18% of incidents, followed by Huntington Ave (13%) and Tremont St (9%), and Ruggles St also enters the top 10. Further, the hour chart shows that most crime near campus happens in the afternoon and early evening, with the peak at 6 PM, rather than late at night. However, we must note that the 10 PM to 2 AM window only has 77 incidents, so the streets lower on the list only have a few incidents each and should not be read too closely. Also, busy streets like Huntington Ave and Mass Ave have more people on them, so they may look more dangerous just because of foot traffic. All in all, the key takeaway here is that students walking home late at night should be most aware on Mass Ave, Huntington Ave, and Tremont St, and they can drag across the hour chart to find which streets to watch out for during the exact time they walk home.</p>
     </section>
 
     <script src="js/map1.js"></script>
+    <script>
+      embedChart("viz6", "charts/streets.json");
+    </script>
   </main>
 
   <footer>
