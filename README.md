@@ -18,6 +18,17 @@ DS4200 final project website: Boston crime incident reports, Sep 2017 - Aug 2018
 - `charts/` holds Altair charts  
 - `data/` holds data files that pages load (Map 1 uses `data/map1.json`)
 - `js/` holds page scripts (`charts.js` draws the Altair charts, `map1.js` draws Map 1)
+- `Project/` holds the notebooks that make the charts, plus `crime.csv`
+
+## Colors
+
+Chart colors are in `Project/theme.py`. Import them in a notebook instead of typing hex codes:
+
+```python
+from theme import DAY, NIGHT, HIGHLIGHT, MUTED, REFERENCE, SEQUENTIAL_SCHEME, OFFENSE_COLORS
+```
+
+The website's colors are at the top of `style.css`. If you change a color in one file, change it in the other too.
 
 ## Other Notes
 
