@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Project Title]</title>
+  <title>Walking Home Safely</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav>
-    <a class="brand" href="index.html">[Project Title]</a>
+    <a class="brand" href="index.html">Walking Home Safely</a>
     <a href="index.html" class="active">Home</a>
     <a href="what.html">What</a>
     <a href="when.html">When</a>
@@ -18,9 +18,18 @@
   </nav>
 
   <main>
-    <h1>[Project Title]</h1>
-    <p>[Introduction: what question the project asks, who it's for, and what data it uses.]</p>
-    <p>Data: Boston Police Department Part One crime incident reports, September 2017 - August 2018.</p>
+    <h1>Walking Home Safely: When and Where Crime Happens Near Northeastern's Boston Campus</h1>
+    <p>Students from around the world come to Boston for the many schools the city offers, one of them being Northeastern, which sits between Back Bay, Fenway, and Roxbury Crossing. For a lot of students, especially those new to Boston or even America, getting home safely after a late class or study session at Snell Library can be a real worry. However, most students' perception about which streets and times are more dangerous comes from word of mouth, passing stories, or reputation, not real evidence. In order to change this walk home from a guessing game to a truly safe route, our project looks at when and where crimes happen around campus, and how this changes by time of day, day of the week, and type of crime, using Boston Police's crime data. We only consider the most serious crimes and those that will most commonly affect students on their walks home. Through these visualizations, we aim to give students a clearer picture of their surroundings, so they can make smarter choices about their routes and timing, and feel more comfortable navigating the streets of Boston.</p>
+
+    <h2>Data</h2>
+    <p>Our data comes from the Boston Police Department's publicly released crime incident reports, available on <a href="https://www.kaggle.com/datasets/ankkur13/boston-crime-data">Kaggle</a>. The full dataset contains 327,820 rows and 17 columns, where each row is a single reported offense. Because one incident can involve several offenses, the INCIDENT_NUMBER identifier is not unique per row. Several features describe the offense at different levels of detail. OFFENSE_CODE is a specific numeric code, stored as a string to preserve leading zeros, and OFFENSE_DESCRIPTION is its plain-language equivalent, so the two carry the same information. OFFENSE_CODE_GROUP places each offense into a broader category such as Robbery or Aggravated Assault. UCR_PART groups offenses into three broader categories by using the FBI's Uniform Crime Reporting system: Part One covers serious crimes like homicide and robbery, Part Two covers less serious offenses, and Part Three and Other cover non-crime service calls and miscellaneous reports. The time-related features are also largely redundant. YEAR, MONTH, DAY_OF_WEEK, and HOUR are all derived from the full OCCURRED_ON_DATE timestamp, but having them as separate columns makes it easier to analyze patterns by season, weekday, or time of day. Location is recorded at several scales, from the police DISTRICT down to the smaller REPORTING_AREA and the specific STREET, along with latitude and longitude coordinates. The Location column simply repeats Lat and Long as a text tuple. Some records also use placeholder coordinates such as -1 or 0, which need to be handled before any mapping. Finally, SHOOTING flags whether a shooting occurred, using "Y" for yes and a blank otherwise. For our visualizations, we filter the data to incidents from September 2017 through August 2018 that are classified as UCR Part One, which covers nine offense groups: Larceny, Larceny From Motor Vehicle, Aggravated Assault, Residential Burglary, Auto Theft, Robbery, Commercial Burglary, Other Burglary, and Homicide. These filters result in a more relevant subset of 17,989 rows and 17 columns by including the most serious crimes that can affect students over a full school year.</p>
+    <p>By recording serious crimes in Boston with precise time and location information, we are able to analyze when and where incidents occur in neighborhoods where students live, study, and commute. However, the data is missing several types of relevant information. It does not record how many people were affected, whether an arrest was made, or details about victims, such as age, demographics or whether they were students. It also excludes incidents handled by university police departments and crimes that were never reported. Because there is no population or foot-traffic data, we can compare crime counts across areas but not crime rates, so busy areas may appear more dangerous than they are.</p>
+
+    <h2>References</h2>
+    <ul>
+      <li><a href="https://www.hks.harvard.edu/publications/concentration-and-stability-gun-violence-micro-places-boston-1980-2008">The Concentration and Stability of Gun Violence at Micro Places in Boston, 1980–2008</a> (Harvard Kennedy School)</li>
+      <li><a href="https://journals.sagepub.com/doi/10.1177/0022427810384137">The Relevance of Micro Places to Citywide Robbery Trends: A Longitudinal Analysis of Robbery Incidents at Street Corners and Block Faces in Boston</a> (Journal of Research in Crime and Delinquency)</li>
+    </ul>
 
     <h2>Sections</h2>
     <ul>
@@ -33,7 +42,7 @@
   </main>
 
   <footer>
-    DS4200 Final Project · [Team Member 1], [Team Member 2], [Team Member 3], [Team Member 4]
+    DS4200 Final Project · Erika, Neel, Frani, Ignacio
   </footer>
 </body>
 </html>

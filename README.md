@@ -1,4 +1,4 @@
-# [Project Title]
+# Walking Home Safely
 
 DS4200 final project website: Boston crime incident reports, Sep 2017 - Aug 2018.
 
