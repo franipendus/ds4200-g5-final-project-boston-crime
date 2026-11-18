@@ -1,22 +1,52 @@
-/* Bare-bones styles; the theme will be picked later */
-body {
-  margin: 0;
-  font-family: sans-serif;
-  line-height: 1.6;
-  color: #222;
-  background: #fff;
+/* Theme: night navy frame, white cards, amber = day / highlight, blue = night / accent
+   Chart colors live in Project/theme.py; keep --blue and --amber the same as NIGHT and DAY there. */
+:root {
+  --night: #12304d;   /* nav, footer, headings */
+  --blue: #2E66B0;    /* links, accents (same blue as the night line in Viz 5 and the bars in Viz 6) */
+  --amber: #C17F00;   /* active tab, highlights (same amber as the day line in Viz 5) */
+  --ground: #f3f5f8;  /* page background */
+  --card: #fff;
+  --ink: #1d2430;
+  --muted: #4d5766;
+  --line: #dde2ea;
+  --nav-text: #d6dde7;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(18, 48, 77, 0.08), 0 4px 16px rgba(18, 48, 77, 0.06);
 }
 
+body {
+  margin: 0;
+  font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--ground);
+}
+
+a { color: var(--blue); }
+
 nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid #ddd;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--night);
 }
-nav a { color: inherit; text-decoration: none; }
-nav a:hover, nav a.active { text-decoration: underline; }
-nav .brand { margin-right: auto; font-weight: bold; }
+nav a {
+  color: var(--nav-text);
+  text-decoration: none;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+nav a:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+nav a.active { color: var(--night); background: var(--amber); font-weight: 700; }
+nav .brand { margin-right: auto; padding-left: 0; color: #fff; font-weight: 700; font-size: 1.05rem; }
+nav .brand::before { content: "●"; color: var(--amber); margin-right: 0.5rem; }
+nav .brand:hover { background: none; }
 
 main {
   max-width: 1000px;
@@ -24,29 +54,84 @@ main {
   padding: 0 1.5rem;
 }
 
-section.viz { margin: 2.5rem 0; }
-.chart { overflow-x: auto; }
+h1 { font-size: 2rem; line-height: 1.25; margin: 0 0 1rem; color: var(--night); text-wrap: balance; }
+h2 { font-size: 1.35rem; line-height: 1.3; color: var(--night); text-wrap: balance; }
+main > h2 { margin-top: 2.5rem; }
+
+/* Each visualization sits on its own card */
+section.viz {
+  margin: 2rem 0;
+  padding: 1.5rem 1.75rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+section.viz h2 { margin-top: 0; }
+.chart { overflow-x: auto; margin: 1rem 0; }
 
 /* Spot for a visualization that hasn't been added yet */
 .placeholder {
-  border: 2px dashed #bbb;
+  border: 2px dashed var(--line);
+  border-radius: 8px;
   padding: 3rem 1rem;
   text-align: center;
-  color: #888;
+  color: var(--muted);
+  background: var(--ground);
 }
 
+/* Home page: header band and section cards */
+.hero { background: var(--night); color: #fff; }
+.hero-inner { max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem 2.5rem; }
+.hero h1 { color: #fff; font-size: 2.3rem; max-width: 800px; }
+.hero p { margin: 0; color: var(--nav-text); }
+
+.section-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+.section-cards a {
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 1rem 1.15rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform 0.15s, border-color 0.15s;
+}
+.section-cards a:hover { transform: translateY(-2px); border-color: var(--amber); }
+.section-cards b { display: block; color: var(--night); }
+.section-cards span { color: var(--muted); font-size: 0.9rem; }
+
 footer {
+  margin-top: 3rem;
   padding: 1.5rem;
-  border-top: 1px solid #ddd;
+  background: var(--night);
+  color: var(--nav-text);
   text-align: center;
   font-size: 0.9rem;
 }
 
 /* Map 1 */
 .map-controls { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; margin: 0.5rem 0; }
+.map-controls select { font: inherit; padding: 0.2rem 0.4rem; border: 1px solid var(--line); border-radius: 6px; background: var(--card); }
+#shown { color: var(--muted); font-weight: 600; }
 .map-row { display: flex; gap: 1rem; align-items: flex-start; }
-#map1 { flex: 1 1 auto; min-width: 0; height: 600px; position: relative; }
-.offense-panel { flex: 0 0 auto; }
+#map1 { flex: 1 1 auto; min-width: 0; height: 600px; position: relative; border-radius: 8px; overflow: hidden; }
+.offense-panel { flex: 0 0 auto; padding: 0.75rem 1rem; background: var(--ground); border-radius: 8px; }
+.offense-panel button {
+  font: inherit; font-size: 0.85rem; margin-top: 0.5rem; padding: 0.15rem 0.7rem; cursor: pointer;
+  background: var(--card); color: var(--night); border: 1px solid var(--line); border-radius: 999px;
+}
+.offense-panel button:hover { border-color: var(--blue); }
 .offense-panel label { display: flex; align-items: center; gap: 0.4rem; }
 .swatch { display: inline-block; width: 12px; height: 12px; border-radius: 50%; border: 1px solid #888; }
 .zoom-buttons { position: absolute; top: 10px; left: 10px; z-index: 10; display: flex; flex-direction: column; gap: 4px; }
@@ -63,6 +148,7 @@ footer {
 .hour-range input {
   position: absolute; left: 0; top: 0; width: 100%; margin: 0;
   pointer-events: none; background: none; -webkit-appearance: none; appearance: none;
+  accent-color: var(--blue);
 }
 .hour-range input::-webkit-slider-thumb { pointer-events: auto; }
 .hour-range input::-moz-range-thumb { pointer-events: auto; }
@@ -72,6 +158,9 @@ footer {
 }
 
 @media (max-width: 700px) {
+  nav { position: static; }
+  section.viz { padding: 1.25rem 1rem; }
+  .hero h1 { font-size: 1.8rem; }
   .map-row { flex-direction: column; }
   #map1 { width: 100%; height: 450px; }
 }
